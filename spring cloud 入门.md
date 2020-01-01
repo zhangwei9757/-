@@ -124,27 +124,27 @@ Spring Cloud CLI：基于 Spring Boot CLI，可以让你以命令行方式快速
 
 ## 使用组件
 
-	>consul 集群注册中心
-	>
-	>config 配置中心 + git
-	>
-	>bus 消息总线 + rabbitMQ 
-	>
-	>gateway 第二代网关，与zuul相关性能有极大的提升
-	>
-	>security 安全组件，权限管理框架 替代shiro框架，使用更简洁，轻量
-	>
-	>openfeign 原feign升级版，以接口形式更优雅的调用其它微服模块 底层使用 RestTemplate
-	>
-	>ribbon 使openfeign调用实现负载均衡，自由配置策略
-	>
-	>zipkin链路追踪,分析 http请求调用情况
-	>
-	>admin 监控 springboot 项目启动基本信息 jvm thread ...
-	>
-	>turbine 豪猪集群监控 openfeign  api 调用性能监控
-	>
-	>......
+	consul 集群注册中心
+	
+	config 配置中心 + git
+	
+	bus 消息总线 + rabbitMQ 
+	
+	gateway 第二代网关，与zuul相关性能有极大的提升
+	
+	security 安全组件，权限管理框架 替代shiro框架，使用更简洁，轻量
+	
+	openfeign 原feign升级版，以接口形式更优雅的调用其它微服模块 底层使用 RestTemplate
+	
+	ribbon 使openfeign调用实现负载均衡，自由配置策略
+	
+	zipkin链路追踪,分析 http请求调用情况
+	
+	admin 监控 springboot 项目启动基本信息 jvm thread ...
+	
+	turbine 豪猪集群监控 openfeign  api 调用性能监控
+	
+	......
 
 
 
