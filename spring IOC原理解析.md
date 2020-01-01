@@ -363,8 +363,58 @@ Spring容器的refresh()【创建刷新,销毁旧的】;
 > 配置类: AnnotationConfigApplicationContext
 
 ```java
-AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfig2.class);
-Blue bean = applicationContext.getBean(Blue.class);
+// 普通类
+public class Person {
+	private String name;
+	private Integer age;
+	private String nickName;
+		
+	public String getNickName() {
+		return nickName;
+	}
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Integer getAge() {
+		return age;
+	}
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+	
+	public Person(String name, Integer age) {
+		super();
+		this.name = name;
+		this.age = age;
+	}
+	public Person() {
+		super();
+	}
+	@Override
+	public String toString() {
+		return "Person [name=" + name + ", age=" + age + ", nickName=" + nickName + "]";
+	}
+}
+
+// 注解配置注入bean类
+@Configuration
+public class MainConfig {
+    @Bean
+	public Person person(){
+		System.out.println("给容器中添加Person....");
+		return new Person("张三", 25);
+	}
+}
+
+// 启动加载关键代码。断点从此处开始可以按下面顺序与环节总结对着看
+AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfig.class);
+Person bean = applicationContext.getBean(Person.class);
 ```
 
 
