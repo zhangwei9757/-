@@ -1,0 +1,103 @@
+>>>>>>>>>>>>>>>>>>>>>>>> 1.支持文件上传
+
+import feign.codec.Encoder;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class FeignSupportConfig {
+    @Bean
+    public Encoder feignFormEncoder() {
+        return new FeignSpringFormEncoder();
+    }
+}
+
+
+>>>>>>>>>>>>>>>>>>>>>>>> 2.支持多文件上传
+import feign.RequestTemplate;
+import feign.codec.EncodeException;
+import feign.codec.Encoder;
+import feign.form.ContentType;
+import feign.form.FormEncoder;
+import feign.form.MultipartFormContentProcessor;
+import feign.form.spring.SpringManyMultipartFilesWriter;
+import feign.form.spring.SpringSingleMultipartFileWriter;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.lang.reflect.Type;
+import java.util.Collections;
+import java.util.Map;
+
+public class FeignSpringFormEncoder extends FormEncoder {
+  /**
+   * Constructor with the default Feign's encoder as a delegate.
+   */
+  public FeignSpringFormEncoder() {
+    this(new Default());
+  }
+  
+  
+  /**
+   * Constructor with specified delegate encoder.
+   *
+   * @param delegate delegate encoder, if this encoder couldn't encode object.
+   */
+  public FeignSpringFormEncoder(Encoder delegate) {
+    super(delegate);
+    
+    MultipartFormContentProcessor processor = (MultipartFormContentProcessor) getContentProcessor(ContentType.MULTIPART);
+    processor.addWriter(new SpringSingleMultipartFileWriter());
+    processor.addWriter(new SpringManyMultipartFilesWriter());
+  }
+  
+  
+  @Override
+  public void encode(Object object, Type bodyType, RequestTemplate template) throws EncodeException {
+    if (bodyType.equals(MultipartFile.class)) {
+      MultipartFile file = (MultipartFile) object;
+      Map data = Collections.singletonMap(file.getName(), object);
+      super.encode(data, MAP_STRING_WILDCARD, template);
+      return;
+    } else if (bodyType.equals(MultipartFile[].class)) {
+      MultipartFile[] file = (MultipartFile[]) object;
+      if(file != null) {
+        Map data = Collections.singletonMap(file.length == 0 ? "" : file[0].getName(), object);
+        super.encode(data, MAP_STRING_WILDCARD, template);
+        return;
+      }
+    }
+    super.encode(object, bodyType, template);
+  }
+}
+
+
+
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>>> 3. 接口
+@FeignClient(value = "turbine-server", configuration = FeignSupportConfig.class)
+public interface UploadService {
+
+    @RequestMapping(value = "/turbine/uploadFile", method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    String handleFileUpload(@RequestPart(value = "file") MultipartFile[] file);
+}
+
+>>>>>>>>>>>>>>>>>>>>>>>> 4. 服务一
+@Autowired
+private UploadService uploadService;
+
+@RequestMapping(value = "/uploadFile",method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+public String handleFileUpload(@ApiParam(value = "文件上传",name = "file",required = true) @RequestPart(value = "file") MultipartFile[] file) {
+    return uploadService.handleFileUpload(file);
+}
+
+>>>>>>>>>>>>>>>>>>>>>>>> 4. 服务二
+@RequestMapping(value = "/uploadFile",method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+public String handleFileUpload(@RequestPart(value = "file") MultipartFile[] file) {
+    String fileName = "";
+    for(MultipartFile f : file){
+        fileName += f.getOriginalFilename()+"---";
+    }
+    return fileName;
+}
