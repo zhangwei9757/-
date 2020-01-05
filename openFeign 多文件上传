@@ -118,3 +118,136 @@ public String handleFileUpload(@RequestPart(value = "file") MultipartFile[] file
     }
     return fileName;
 }
+
+
+=================================================Spring cloud Feign不支持对象传参解决办法================================================================
+<dependency>
+ <groupId>com.moonciki.strongfeign</groupId>
+ <artifactId>feign-httpclient</artifactId>
+ <version>10.2.3</version>
+</dependency>
+
+1.注意：不要使用 10.3.x版本，该版本有问题。如果jar包无法下载请使用 maven 中央仓库。
+https://www.toutiao.com/i6722722725510513156/
+
+2.使用注解配置 feign Contract 对象
+@Configuration
+public class FeignDtoConfig {
+
+    @Bean
+    public Contract feignContract() {
+        List<AnnotatedParameterProcessor> processors = new ArrayList<>();
+        processors.add(new ParamModelParameterProcessor());
+        processors.add(new PathVariableParameterProcessor());
+        processors.add(new RequestHeaderParameterProcessor());
+        processors.add(new RequestParamParameterProcessor());
+        return new SpringMvcContract(processors);
+    }
+}
+
+3.使用时，只需要在对象前加 @ParamModel 注解即可
+4.需要同时传递对象及基本类型参数时， @ParamModel 可以与 @RequestParam("jobName") 同时使用在不同参数上。
+
+------------->>>>>   ParamModel.java
+ 
+@Target({ElementType.PARAMETER})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface ParamModel {
+    String value() default "";
+}
+
+
+------------>>>>>  ModelExpander.java
+@Slf4j
+public class ModelExpander implements Param.Expander {
+
+    @Override
+    public String expand(Object value) {
+        String objectJson = JSON.toJSONString(value);
+        return objectJson;
+    }
+
+    
+    public String expandWithName(Object value, String name) {
+        String valueExpand = null;
+
+        if (value != null) {
+            if (name != null) {
+                try {
+                    Map<String, Object> jsonMap = (Map<String, Object>) JSON.toJSON(value);
+
+                    Object getValue = jsonMap.get(name);
+                    if (getValue != null) {
+                        valueExpand = getValue.toString();
+                    }
+                } catch (Exception e) {
+                    log.error("GET VALUE ERROR:", e);
+                }
+            } else {
+                valueExpand = value.toString();
+            }
+        }
+
+        return valueExpand;
+    }
+}
+
+
+------------>>>>> ParamModelParameterProcessor.java
+
+
+public class ParamModelParameterProcessor implements AnnotatedParameterProcessor {
+
+    private static final Class<ParamModel> ANNOTATION = ParamModel.class;
+
+    @Override
+    public Class<? extends Annotation> getAnnotationType() {
+        return ANNOTATION;
+    }
+
+    @Override
+    public boolean processArgument(AnnotatedParameterContext context, Annotation annotation, Method method) {
+
+        int parameterIndex = context.getParameterIndex();
+        Class parameterType = method.getParameterTypes()[parameterIndex];
+        MethodMetadata data = context.getMethodMetadata();
+
+        Field[] fields = parameterType.getDeclaredFields();
+
+        for (Field field : fields) {
+            String name = field.getName();
+            context.setParameterName(name);
+
+            Collection query = context.setTemplateParameter(name, (Collection) data.template().queries().get(name));
+            data.template().query(name, query);
+        }
+        data.indexToExpander().put(context.getParameterIndex(), new ModelExpander());
+
+        return true;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
