@@ -58,9 +58,40 @@
 
 ### 1. windows 版本
 
-![1578815661464](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\1578815661464.png)
+> 解压缩 Windows + R    输入： cmd
 
-![1578815806232](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\1578815806232.png)
+```cmd
+D:\Consul>consul
+usage: consul [--version] [--help] <command> [<args>]
+
+Available commands are:
+    agent          Runs a Consul agent
+    configtest     Validate config file
+    event          Fire a new event
+    exec           Executes a command on Consul nodes
+    force-leave    Forces a member of the cluster to enter the "left" state
+    info           Provides debugging information for operators
+    join           Tell Consul agent to join cluster
+    keygen         Generates a new encryption key
+    keyring        Manages gossip layer encryption keys
+    kv             Interact with the key-value store
+    leave          Gracefully leaves the Consul cluster and shuts down
+    lock           Execute a command holding a lock
+    maint          Controls node or service maintenance mode
+    members        Lists the members of a Consul cluster
+    monitor        Stream logs from a Consul agent
+    operator       Provides cluster-level tools for Consul operators
+    reload         Triggers the agent to reload configuration files
+    rtt            Estimates network round trip time between nodes
+    snapshot       Saves, restores and inspects snapshots of Consul server state
+    version        Prints the Consul version
+    watch          Watch for changes in Consul
+
+
+D:\Consul>
+```
+
+
 
 
 
@@ -68,9 +99,51 @@
 
 ### 2. Linux版本
 
-![1578815709139](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\1578815709139.png)
+```shell
+[root@master zhangwei]# unzip consul_1.2.0_linux_amd64.zip 
+Archive:  consul_1.2.0_linux_amd64.zip
+  inflating: consul                  
+[root@master zhangwei]# 
+```
 
-![1578815903941](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\1578815903941.png)
+
+
+
+
+```shell
+[root@master zhangwei]# ./consul 
+Usage: consul [--version] [--help] <command> [<args>]
+
+Available commands are:
+    agent          Runs a Consul agent
+    catalog        Interact with the catalog
+    connect        Interact with Consul Connect
+    event          Fire a new event
+    exec           Executes a command on Consul nodes
+    force-leave    Forces a member of the cluster to enter the "left" state
+    info           Provides debugging information for operators.
+    intention      Interact with Connect service intentions
+    join           Tell Consul agent to join cluster
+    keygen         Generates a new encryption key
+    keyring        Manages gossip layer encryption keys
+    kv             Interact with the key-value store
+    leave          Gracefully leaves the Consul cluster and shuts down
+    lock           Execute a command holding a lock
+    maint          Controls node or service maintenance mode
+    members        Lists the members of a Consul cluster
+    monitor        Stream logs from a Consul agent
+    operator       Provides cluster-level tools for Consul operators
+    reload         Triggers the agent to reload configuration files
+    rtt            Estimates network round trip time between nodes
+    snapshot       Saves, restores and inspects snapshots of Consul server state
+    validate       Validate config files/directories
+    version        Prints the Consul version
+    watch          Watch for changes in Consul
+
+[root@master zhangwei]#
+```
+
+
 
 
 
@@ -164,9 +237,7 @@
 
 
 
-> 此时访问: http://ip:8500  出现如下界面表示成功 (windows 版本命令一样)
-
-![1578816702032](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\1578816702032.png)
+> 此时访问: http://ip:8500  出现Consul UI界面表示成功 (windows 版本命令一样)
 
 
 
