@@ -39,7 +39,7 @@
 
 ### 1. 使用IDEA 创建一个配置服务端应用
 
-![config-server-init](C:\Users\lenovo\Desktop\新建文件夹\images\config-server-init.png)
+![config-server-init](https://github.com/zhangwei9757/Documents/blob/master/images/config-server-init.png?raw=true)
 
 
 
@@ -127,7 +127,7 @@ public class ConfigServerApplication {
 
 
 
-![config-server-consul](C:\Users\lenovo\Desktop\新建文件夹\images\config-server-consul.png)
+![config-server-consul](https://github.com/zhangwei9757/Documents/blob/master/images/config-server-consul.png?raw=true)
 
 5. URL与配置文件的映射关系如下：
 
@@ -141,7 +141,7 @@ public class ConfigServerApplication {
 
 6. 测试结果如下图  【客户端配置文件信息】：
 
-   ![1579336637693](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\1579336637693.png)
+   ![1579336637693](https://github.com/zhangwei9757/Documents/blob/master/images/uc.yml.png?raw=true)
 
    
    
@@ -330,7 +330,7 @@ public class ConfigServerAutoConfiguration {
 
    5. 类图如下
 
-   ![MultipleJGitEnvironmentRepository](C:\Users\lenovo\Desktop\新建文件夹\images\MultipleJGitEnvironmentRepository.png)
+   ![MultipleJGitEnvironmentRepository](https://github.com/zhangwei9757/Documents/blob/master/images/MultipleJGitEnvironmentRepository.png?raw=true)
 
    
    
@@ -411,7 +411,7 @@ public class GatewayServerApplication {
 }
 ```
 
-![1579336227844](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\1579336227844.png)
+![1579336227844](https://github.com/zhangwei9757/Documents/blob/master/images/config-client-init.png?raw=true)
 
 
 
@@ -459,17 +459,17 @@ public class ApiController {
 
 2. 测试结果如下图：
 
-![1579336486997](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\1579336486997.png)
+![1579336486997](https://github.com/zhangwei9757/Documents/blob/master/images/test.png?raw=true)
 
 3. 修改 github文件键值对为新值：  test:zhangwei222
 
 4. 调用客户端端口:  /actuator/bus-refresh 
 
-![1579336935224](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\1579336935224.png)
+![1579336935224](https://github.com/zhangwei9757/Documents/blob/master/images/config-client-refresh.png?raw=true)
 
 5. 调用测试2步骤
 
-![1579336881459](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\1579336881459.png)
+![1579336881459](https://github.com/zhangwei9757/Documents/blob/master/images/test2.png?raw=true)
 
 
 
@@ -480,4 +480,7 @@ public class ApiController {
 > 3.  本篇配置中心，实践操作并配置好环境 
 
 
-## 持续更新中
+
+
+
+## 持续更新中 ..... 
