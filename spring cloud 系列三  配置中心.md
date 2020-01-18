@@ -30,7 +30,7 @@
 >
 > 3. 访问配置中心的客户端， 即：客户端
 >
->    ​	oonfig-client
+>    ​	config-client
 
 
 
