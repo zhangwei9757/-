@@ -398,14 +398,14 @@ spring:
 @SpringBootApplication
 @EnableDiscoveryClient
 @Slf4j
-public class GatewayServerApplication {
+public class UcServerApplication {
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext swa = SpringApplication.run(GatewayServerApplication.class, args);
+        ConfigurableApplicationContext swa = SpringApplication.run(UcServerApplication.class, args);
         ConfigurableEnvironment environment = swa.getEnvironment();
         if (environment != null) {
             String port = environment.getProperty("server.port");
-            log.warn("\n\r --->>> Gateway Service Listener Port:【" + port + "】, day:【" + TimeUtils.getCurrentDay() + "】");
+            log.warn("\n\r --->>> UC Service Listener Port:【" + port + "】, day:【" + TimeUtils.getCurrentDay() + "】");
         }
     }
 }
