@@ -459,13 +459,13 @@ public class ApiController {
 
 2. 测试结果如下图：
 
-![1579336486997](https://github.com/zhangwei9757/Documents/blob/master/images/test.png?raw=true)
+![test](https://github.com/zhangwei9757/Documents/blob/master/images/test.png?raw=true)
 
 3. 修改 github文件键值对为新值：  test:zhangwei222
 
 4. 调用客户端端口:  /actuator/bus-refresh 
 
-![1579336935224](https://github.com/zhangwei9757/Documents/blob/master/images/config-client-refresh.png?raw=true)
+![config-client-refresh](https://github.com/zhangwei9757/Documents/blob/master/images/config-client-refresh.png?raw=true)
 
 5. 调用测试2步骤
 
