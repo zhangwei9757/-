@@ -127,7 +127,7 @@ public class ConfigServerApplication {
 
 
 
-![1579530079611](https://raw.githubusercontent.com/zhangwei9757/Documents/master/images/config-server-consul.png)
+![config-server-consul](https://raw.githubusercontent.com/zhangwei9757/Documents/master/images/config-server-consul.png)
 
 5. URL与配置文件的映射关系如下：
 
@@ -141,7 +141,7 @@ public class ConfigServerApplication {
 
 6. 测试结果如下图  【客户端配置文件信息】：
 
-   ![1579336637693](https://raw.githubusercontent.com/zhangwei9757/Documents/master/images/uc.yml.png)
+   ![uc.yml](https://raw.githubusercontent.com/zhangwei9757/Documents/master/images/uc.yml.png)
 
    
    
@@ -411,7 +411,7 @@ public class UcServerApplication {
 }
 ```
 
-![1579336227844](https://raw.githubusercontent.com/zhangwei9757/Documents/master/images/config-client-init.png)
+![config-client-init](https://raw.githubusercontent.com/zhangwei9757/Documents/master/images/config-client-init.png)
 
 
 
