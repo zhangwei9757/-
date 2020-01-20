@@ -39,7 +39,7 @@
 
 ### 1. 使用IDEA 创建一个配置服务端应用
 
-![config-server-init](https://github.com/zhangwei9757/Documents/blob/master/images/config-server-init.png?raw=true)
+![config-server-init](https://raw.githubusercontent.com/zhangwei9757/Documents/master/images/config-server-init.png)
 
 
 
@@ -127,7 +127,7 @@ public class ConfigServerApplication {
 
 
 
-![config-server-consul](https://github.com/zhangwei9757/Documents/blob/master/images/config-server-consul.png?raw=true)
+![1579530079611](https://raw.githubusercontent.com/zhangwei9757/Documents/master/images/config-server-consul.png)
 
 5. URL与配置文件的映射关系如下：
 
@@ -141,7 +141,7 @@ public class ConfigServerApplication {
 
 6. 测试结果如下图  【客户端配置文件信息】：
 
-   ![1579336637693](https://github.com/zhangwei9757/Documents/blob/master/images/uc.yml.png?raw=true)
+   ![1579336637693](https://raw.githubusercontent.com/zhangwei9757/Documents/master/images/uc.yml.png)
 
    
    
@@ -330,7 +330,7 @@ public class ConfigServerAutoConfiguration {
 
    5. 类图如下
 
-   ![MultipleJGitEnvironmentRepository](https://github.com/zhangwei9757/Documents/blob/master/images/MultipleJGitEnvironmentRepository.png?raw=true)
+   ![MultipleJGitEnvironmentRepository](https://raw.githubusercontent.com/zhangwei9757/Documents/master/images/MultipleJGitEnvironmentRepository.png)
 
    
    
@@ -411,7 +411,7 @@ public class UcServerApplication {
 }
 ```
 
-![1579336227844](https://github.com/zhangwei9757/Documents/blob/master/images/config-client-init.png?raw=true)
+![1579336227844](https://raw.githubusercontent.com/zhangwei9757/Documents/master/images/config-client-init.png)
 
 
 
@@ -459,17 +459,16 @@ public class ApiController {
 
 2. 测试结果如下图：
 
-![test](https://github.com/zhangwei9757/Documents/blob/master/images/test.png?raw=true)
+![1579530355265](https://raw.githubusercontent.com/zhangwei9757/Documents/master/images/test.png)
 
 3. 修改 github文件键值对为新值：  test:zhangwei222
-
 4. 调用客户端端口:  /actuator/bus-refresh 
 
-![config-client-refresh](https://github.com/zhangwei9757/Documents/blob/master/images/config-client-refresh.png?raw=true)
+![config-client-refresh](https://raw.githubusercontent.com/zhangwei9757/Documents/master/images/config-client-refresh.png)
 
 5. 调用测试2步骤
 
-![1579336881459](https://github.com/zhangwei9757/Documents/blob/master/images/test2.png?raw=true)
+![1579336881459](https://raw.githubusercontent.com/zhangwei9757/Documents/master/images/test2.png)
 
 
 
