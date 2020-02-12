@@ -27,7 +27,7 @@
 > 4. FilteringWebHandler主要负责组装 Filter链表并调用Filter处理，然后把请求转到后端对应的微服务处理
 > 5. 处理完毕之后，Response返回到 Gateway 调用的客户端
 
-![gateway工作原理图](https://raw.githubusercontent.com/zhangwei9757/Documents/master/images/gateway%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%9B%BE.png)
+![gateway_core](https://raw.githubusercontent.com/zhangwei9757/Documents/master/images/gateway_core.png)
 
 
 
