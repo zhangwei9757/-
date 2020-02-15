@@ -27,6 +27,8 @@
 > 4. FilteringWebHandler主要负责组装 Filter链表并调用Filter处理，然后把请求转到后端对应的微服务处理
 > 5. 处理完毕之后，Response返回到 Gateway 调用的客户端
 
+
+
 ![gateway_core](https://raw.githubusercontent.com/zhangwei9757/Documents/master/images/gateway_core.png)
 
 
@@ -117,7 +119,7 @@ management:
 
 ### 4. Spring Cloud Gateway 提供了一个 gateway actuator， 该 EndPoint 提供了关于Filter 及 routes 查询以及指定的 route 信息更新的 Rest API接口
 
-![gateway_routes_query](https://raw.githubusercontent.com/zhangwei9757/Documents/master/images/gateway_routes_query.png)
+![gateway_routes_query](https://github.com/zhangwei9757/Documents/blob/master/images/gateway_core.png)
 
 访问：  http://localhost:8080/actuator/gateway/routes 
 
@@ -341,7 +343,7 @@ public class AddRequestHeaderGatewayFilterFactory extends AbstractNameValueGatew
 
 
 
-##  个人总结：
+##  个人总结
 
 > 本文旨在引导大家了解微服务 新版本 gateway 入门和一些概念，及工作原理(上文有图)，虽然不尽详细，
 >
