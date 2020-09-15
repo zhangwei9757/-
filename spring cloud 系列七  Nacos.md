@@ -448,7 +448,7 @@ spring:
 
 
 
-### 3. 3 使用@EnableDiscoveryClient批注打开服务注册和发现。 
+### 3. 3 使用@EnableDiscoveryClient注解打开服务注册和发现。 
 
 ```java
  @SpringBootApplication
