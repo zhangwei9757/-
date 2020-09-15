@@ -296,33 +296,42 @@ db.password=123456
 
 
 ### 6. nacos集群的意义：
-> 微服务最重要的就是注册中心，起着生产与消费之间联系的作用，那么nacos宕机将造成程序错误！
-> 所以要将nacos集群搭建，以防宕机 
->
-> 1. 复制多份nacos文件，最好以端口号命名方便查看 
->
-> 2. 修改配置 nacos/conf/cluster.conf 
->  这个文件本来没有的，通过复制 cluster.conf.example  文件的副本改名得来 
->
->        192.168.203.1:8848
->         192.168.203.1:8849
->
-> #因为是模拟多主机集群，这里用的是ip+端口的形式。
->   #两个记录为集群的主机ip和nacos端口
->   #不要写localhost
->
-> 3. 修改配置 application.properties ( 两个nacos都要有该文件，内容相同 )
->
->    server.port=8848 / 8849
-> 	spring.datasource.platform=mysql
->     db.num=1
->     db.url.0=jdbc:mysql://localhost:3306/nacos?>			 useSSL=false&serverTimezone=UTC&serverTimezone=Asia/Shanghai
->      db.user=root
->      db.password=123456
->
-> 4.  修改启动模式为： cluster ( nacos\bin\starup.cmd *27行* , 如是集群模式不用修改)
->
->       set MODE="cluster" 
+
+>微服务最重要的就是注册中心，起着生产与消费之间联系的作用，那么nacos宕机将造成程序错误！
+>所以要将nacos集群搭建，以防宕机 
+
+```json
+1. 复制多份nacos文件，最好以端口号命名方便查看 
+```
+
+```json
+2. 修改配置 nacos/conf/cluster.conf 这个文件本来没有的，通过复制 cluster.conf.example  文件的副本改名得来 
+
+192.168.203.1:8848
+192.168.203.1:8849
+# 因为是模拟多主机集群，这里用的是ip+端口的形式。
+# 两个记录为集群的主机ip和nacos端口
+# 不要写localhost
+```
+
+```json
+3. 修改配置 application.properties ( 两个nacos都要有该文件，内容相同 )
+server.port=8848 / 8849
+spring.datasource.platform=mysql
+db.num=1
+db.url.0=jdbc:mysql://localhost:3306/nacos?>			 useSSL=false&serverTimezone=UTC&serverTimezone=Asia/Shanghai
+db.user=root
+db.password=123456
+```
+
+```json
+4. 修改启动模式为： cluster ( nacos\bin\starup.cmd *27行* , 如是集群模式不用修改)
+set MODE="cluster" 
+```
+
+
+
+
 
 ### 7. 启动
 
