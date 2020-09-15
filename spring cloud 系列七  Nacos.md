@@ -319,7 +319,7 @@ db.password=123456
 server.port=8848 / 8849
 spring.datasource.platform=mysql
 db.num=1
-db.url.0=jdbc:mysql://localhost:3306/nacos?>			 useSSL=false&serverTimezone=UTC&serverTimezone=Asia/Shanghai
+db.url.0=jdbc:mysql://localhost:3306/nacos?>useSSL=false&serverTimezone=UTC&serverTimezone=Asia/Shanghai	
 db.user=root
 db.password=123456
 ```
