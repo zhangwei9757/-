@@ -302,27 +302,27 @@ db.password=123456
 > 1. 复制多份nacos文件，最好以端口号命名方便查看 
 >
 > 2. 修改配置 nacos/conf/cluster.conf 
->        这个文件本来没有的，通过复制 cluster.conf.example  文件的副本改名得来 
+>  这个文件本来没有的，通过复制 cluster.conf.example  文件的副本改名得来 
 >
->      192.168.203.1:8848
->  192.168.203.1:8849
->      *#因为是模拟多主机集群，这里用的是ip+端口的形式。*
->      *#两个记录为集群的主机ip和nacos端口*
->      *#不要写localhost*
->    
->    3. 修改配置 application.properties ( 两个nacos都要有该文件，内容相同 )
+>        192.168.203.1:8848
+>         192.168.203.1:8849
 >
->      server.port=8848 / 8849
+> #因为是模拟多主机集群，这里用的是ip+端口的形式。
+>   #两个记录为集群的主机ip和nacos端口
+>   #不要写localhost
 >
->        spring.datasource.platform=mysql
->    db.num=1
->        db.url.0=jdbc:mysql://localhost:3306/nacos?useSSL=false&serverTimezone=UTC&serverTimezone=Asia/Shanghai
->        db.user=root
->        db.password=123456
->    
->    4.  修改启动模式为： cluster ( nacos\bin\starup.cmd *27行* , 如是集群模式不用修改)
+> 3. 修改配置 application.properties ( 两个nacos都要有该文件，内容相同 )
 >
->    ​      set MODE="cluster" 
+>    server.port=8848 / 8849
+> 	spring.datasource.platform=mysql
+>     db.num=1
+>     db.url.0=jdbc:mysql://localhost:3306/nacos?>			 useSSL=false&serverTimezone=UTC&serverTimezone=Asia/Shanghai
+>      db.user=root
+>      db.password=123456
+>
+> 4.  修改启动模式为： cluster ( nacos\bin\starup.cmd *27行* , 如是集群模式不用修改)
+>
+>       set MODE="cluster" 
 
 ### 7. 启动
 
