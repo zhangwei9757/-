@@ -492,7 +492,7 @@ spring:
 | 元数据     | spring.cloud.nacos.discovery.metadata          |                         | 扩展数据，使用地图格式进行配置                               |
 | 日志名称   | spring.cloud.nacos.discovery.log名称           |                         |                                                              |
 | 终点       | spring.cloud.nacos.discovery.endpoint          |                         | 服务的域名，通过该域名可以动态获取服务器地址。               |
-| 整合功能区 | ribbon.nacos.enabled                           | 真正                    |                                                              |
+| 整合功能区 | ribbon.nacos.enabled                           | true                    |                                                              |
 
 
 
