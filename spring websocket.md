@@ -280,7 +280,7 @@ public class WebSocketConfiguration implements WebSocketConfigurer {
 6. 我们使用源码里提供的自定义协议，传输文本内容: AuthRequest|{"accessToken":"test"}
    返回结果: 
     收到消息 18:22:18
-    Return|{"type":null,"result":"2020-10-06T18:22:18.824:::test"}
+    Return|{"type":"AuthRequest","result":"2020-10-06T18:22:18.824:::test"}
 7. 此时我们就简单的实现了前后端自定义协议，传输报文，同理也可以实现二进制小文本传输方案, 
 
 8. 大文件可以使用浏览器天生的处理能力，后台使用springMVC接收大文件传输，或者使用开源的第三方，前后端自定义方案进行断点续传功能，会极大的提供服务器传输文件和适用性，以及性能和并发
