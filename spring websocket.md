@@ -18,7 +18,7 @@
 >
 > git仓库源码地址: https://github.com/zhangwei9757/springcloud-zhangwei/tree/master/websocket-zhangwei
 >
-> **说明**:  starter 包是基于原生 spring websocket 封装了一套自定义协议，简化了前后端开发的复杂程序，以及前端参数传递和身份难， 便于开发， 维护和升级。。。
+> **说明**:  starter 包是基于原生 spring websocket 封装了一套自定义协议，简化了前后端开发的复杂程序，以及前端参数传递和身份认证， 便于开发， 维护和升级。。。
 
 
 
